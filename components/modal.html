@@ -1,0 +1,19 @@
+<!-- Modal Global para Servicios -->
+<div class="modal fade" id="servicioModal" tabindex="-1" aria-labelledby="servicioModalLabel" aria-hidden="true" data-bs-theme="dark">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content shadow-lg" style="background-color: #18181b; border: 1px solid #27272a;">
+            <div class="modal-header border-bottom border-secondary p-4">
+                <h4 class="modal-title fw-bold display-6" id="servicioModalLabel" style="color: #0066ff;">Servicio</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body p-4 p-md-5">
+                <div id="modal-etiquetas" class="mb-4 d-flex flex-wrap gap-2"></div>
+                <p id="modal-descripcion" class="fs-4" style="color: #d1d5db; line-height: 1.7;"></p>
+            </div>
+            <div class="modal-footer border-top border-secondary p-4">
+                <button type="button" class="btn btn-outline-light me-2" data-bs-dismiss="modal">Cerrar</button>
+                <a href="#contacto" class="btn btn-vl-primary px-5 py-2 fs-5" onclick="bootstrap.Modal.getInstance(document.getElementById('servicioModal')).hide();">Cotizar este servicio</a>
+            </div>
+        </div>
+    </div>
+</div>
