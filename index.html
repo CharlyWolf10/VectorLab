@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VECTORLAB | Manufactura Digital y Diseño</title>
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-dark text-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-uppercase" href="#" style="color: #0066ff;">
+                Vector<span class="text-white">Lab</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavegacion">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menuNavegacion">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="inicio" class="hero-section d-flex align-items-center">
+        <div class="container text-center text-md-start fade-in-element">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-5 mb-md-0">
+                    <span class="badge badge-custom mb-3">Manufactura Digital & Diseño</span>
+                    <h1 class="display-3 fw-bold mb-3">Precisión y Diseño a tu <span style="color: #0066ff;">Medida</span></h1>
+                    <p class="lead mb-4" style="color: #a1a1aa;">
+                        Corte láser, impresión 3D de piezas y ploteo de planos. Transformamos tus ideas en realidad con tecnología de alta gama.
+                    </p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <a href="#contacto" class="btn btn-vl-primary btn-lg px-4 me-md-2">Cotizar Proyecto</a>
+                        <a href="#servicios" class="btn btn-vl-outline btn-lg px-4">Ver Servicios</a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <div class="hero-image-placeholder">
+                       <img src="assets/img/VectorLab.png" class="d-block w-100" style="height: 450px; object-fit: cover; filter: brightness(0.7);" alt="Logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECCIÓN SERVICIOS -->
+    <section id="servicios" class="py-5">
+        <div class="container py-5 fade-in-element">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Nuestros <span style="color: #0066ff;">Servicios</span></h2>
+                <p class="lead" style="color: #a1a1aa;">Catálogo especializado de manufactura digital y diseño.</p>
+            </div>
+            
+            <div class="row g-4" id="servicios-grid">
+                <!-- Los servicios se renderizan dinámicamente desde js/main.js usando la data de js/database.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN GALERÍA -->
+    <section id="galeria" class="py-5 bg-dark-custom border-top border-bottom border-dark">
+        <div class="container py-5 fade-in-element">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Galería <span style="color: #0066ff;">Didáctica</span></h2>
+                <p class="lead" style="color: #a1a1aa;">Conoce nuestros procesos de manufactura en acción.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <!-- Bootstrap Carousel -->
+                    <div id="carouselGaleria" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner rounded-3 shadow-lg border border-secondary">
+                            <div class="carousel-item active">
+                                <img src="assets/img/corte_laser.png" class="d-block w-100" style="height: 450px; object-fit: cover; filter: brightness(0.7);" alt="Corte Láser">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3 class="fw-bold" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Corte Láser</h3>
+                                    <p class="lead" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">Precisión milimétrica en acrílico, MDF y madera.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/img/ploteo.png" class="d-block w-100" style="height: 450px; object-fit: cover; filter: brightness(0.7);" alt="Ploteo de Planos">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3 class="fw-bold" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Ploteo de Planos</h3>
+                                    <p class="lead" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">Impresión digital en gran formato y alta resolución.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/img/impresion_3d.png" class="d-block w-100" style="height: 450px; object-fit: cover; filter: brightness(0.7);" alt="Impresión 3D">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3 class="fw-bold" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Impresión 3D</h3>
+                                    <p class="lead" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">Manufactura avanzada de piezas con tecnología FDM.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselGaleria" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselGaleria" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CENTRO DE MANDO -->
+    <footer id="contacto" class="py-5">
+        <div class="container fade-in-element">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="navbar-brand fw-bold text-uppercase fs-3 mb-3 d-block" href="#" style="color: #0066ff;">
+                        Vector<span class="text-white">Lab</span>
+                    </a>
+                    <p style="color: #a1a1aa;">Precisión y diseño a tu medida. Transformamos ideas en realidad usando manufactura digital avanzada.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <!-- Botones de Redes Sociales -->
+                        <a href="#" class="btn btn-vl-outline rounded-circle" style="width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;" title="Instagram">IG</a>
+                        <a href="#" class="btn btn-vl-outline rounded-circle" style="width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;" title="Facebook">FB</a>
+                        <a href="#" class="btn btn-vl-outline rounded-circle" style="width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;" title="WhatsApp">WA</a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="text-white mb-4">Agenda una Asesoría</h5>
+                    <div class="calendar-widget-placeholder rounded d-flex align-items-center justify-content-center text-center p-4">
+                        <p class="text-muted m-0 small">Widget de Google Calendar Embebido</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="text-white mb-4">Contacto Rápido</h5>
+                    <form id="contact-form">
+                        <div class="mb-3">
+                            <input type="email" class="form-control form-control-dark" placeholder="Tu correo electrónico" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control form-control-dark" rows="3" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-vl-primary w-100">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row mt-5 pt-4 border-top" style="border-color: #27272a !important;">
+                <div class="col-12 text-center text-muted small">
+                    &copy; 2026 VectorLab. Todos los derechos reservados.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

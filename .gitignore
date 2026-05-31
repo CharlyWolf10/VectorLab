@@ -1,0 +1,17 @@
+# Logs y bases de datos locales
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencias (si usáramos npm en el futuro)
+node_modules/
+
+# Archivos del sistema operativo (Windows/Mac)
+.DS_Store
+Thumbs.db
+
+# Configuración del IDE
+.vscode/
+.idea/

@@ -1,0 +1,168 @@
+/* =========================================
+   VARIABLES DE COLOR (Identidad VECTORLAB)
+   ========================================= */
+:root {
+    --vl-blue: #0066ff;      /* Azul eléctrico del logo */
+    --vl-dark: #0f0f11;      /* Fondo negro mate */
+    --vl-gray-card: #18181b; /* Gris oscuro para elementos */
+    --vl-text-muted: #a1a1aa;/* Gris claro para textos */
+}
+
+/* =========================================
+   ESTILOS GENERALES
+   ========================================= */
+body {
+    background-color: var(--vl-dark);
+    color: #ffffff;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* =========================================
+   BARRA DE NAVEGACIÓN
+   ========================================= */
+.bg-dark-custom {
+    background-color: rgba(15, 15, 17, 0.95); /* Negro ligeramente transparente */
+    backdrop-filter: blur(10px); /* Efecto de cristal borroso atrás */
+    border-bottom: 1px solid #27272a;
+}
+
+/* =========================================
+   SECCIÓN HERO
+   ========================================= */
+.hero-section {
+    min-height: 100vh; /* Ocupa el 100% de la pantalla visible */
+    padding-top: 80px; /* Espacio para que no lo tape la barra de navegación */
+}
+
+.hero-image-placeholder {
+    background-color: var(--vl-gray-card);
+    border: 1px dashed #3f3f46;
+    border-radius: 12px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =========================================
+   BOTONES Y ETIQUETAS PERSONALIZADOS
+   ========================================= */
+.btn-vl-primary {
+    background-color: var(--vl-blue);
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.btn-vl-primary:hover {
+    background-color: #0052cc;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.4);
+}
+
+.btn-vl-outline {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid var(--vl-text-muted);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.btn-vl-outline:hover {
+    border-color: var(--vl-blue);
+    color: var(--vl-blue);
+}
+
+.badge-custom {
+    background-color: rgba(0, 102, 255, 0.1);
+    color: var(--vl-blue);
+    border: 1px solid rgba(0, 102, 255, 0.3);
+    padding: 8px 12px;
+    font-weight: 500;
+}
+
+/* =========================================
+   ANIMACIÓN DE DESVANECIMIENTO (FADE IN)
+   ========================================= */
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out forwards;
+    /* Un pequeño retraso para que cargue la estructura primero */
+    animation-delay: 0.2s; 
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   TARJETAS DE SERVICIOS
+   ========================================= */
+.service-card {
+    background-color: var(--vl-gray-card);
+    border: 1px solid #27272a;
+    border-radius: 12px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+.service-card:hover {
+    border-color: var(--vl-blue);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.1);
+}
+.service-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--vl-blue);
+    opacity: 0.7;
+    margin-bottom: -10px;
+}
+.service-card .card-title {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+.service-card .badge {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: var(--vl-text-muted);
+}
+
+/* =========================================
+   GALERÍA DIDÁCTICA
+   ========================================= */
+.gallery-placeholder {
+    height: 450px;
+    background-color: #000000;
+    border-radius: 8px;
+}
+
+/* =========================================
+   FOOTER Y CONTACTO
+   ========================================= */
+.calendar-widget-placeholder {
+    background-color: var(--vl-gray-card);
+    border: 1px dashed #3f3f46;
+    height: 200px;
+}
+
+.form-control-dark {
+    background-color: var(--vl-gray-card);
+    border: 1px solid #3f3f46;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+.form-control-dark:focus {
+    background-color: #27272a;
+    border-color: var(--vl-blue);
+    box-shadow: 0 0 0 0.25rem rgba(0, 102, 255, 0.25);
+    color: #ffffff;
+}
+.form-control-dark::placeholder {
+    color: #71717a;
+}
