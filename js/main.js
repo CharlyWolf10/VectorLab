@@ -28,6 +28,7 @@ async function cargarComponentes() {
         { id: 'comp-hero', url: 'components/hero.html' },
         { id: 'comp-descuentos', url: 'components/descuentos.html' },
         { id: 'comp-nosotros', url: 'components/nosotros.html' },
+        { id: 'comp-mision', url: 'components/mision.html' },
         { id: 'comp-servicios', url: 'components/servicios.html' },
         { id: 'comp-galeria', url: 'components/galeria.html' },
         { id: 'comp-beneficios', url: 'components/beneficios.html' },
