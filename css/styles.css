@@ -2,10 +2,14 @@
    VARIABLES DE COLOR (Identidad VECTORLAB)
    ========================================= */
 :root {
-    --vl-blue: #0066ff;      /* Azul eléctrico del logo */
-    --vl-dark: #0f0f11;      /* Fondo negro mate */
-    --vl-gray-card: #18181b; /* Gris oscuro para elementos */
-    --vl-text-muted: #a1a1aa;/* Gris claro para textos */
+    --vl-blue: #0066ff;
+    /* Azul eléctrico del logo */
+    --vl-dark: #0f0f11;
+    /* Fondo negro mate */
+    --vl-gray-card: #18181b;
+    /* Gris oscuro para elementos */
+    --vl-text-muted: #a1a1aa;
+    /* Gris claro para textos */
 }
 
 /* =========================================
@@ -21,8 +25,10 @@ body {
    BARRA DE NAVEGACIÓN
    ========================================= */
 .bg-dark-custom {
-    background-color: rgba(15, 15, 17, 0.95); /* Negro ligeramente transparente */
-    backdrop-filter: blur(10px); /* Efecto de cristal borroso atrás */
+    background-color: rgba(15, 15, 17, 0.95);
+    /* Negro ligeramente transparente */
+    backdrop-filter: blur(10px);
+    /* Efecto de cristal borroso atrás */
     border-bottom: 1px solid #27272a;
 }
 
@@ -32,6 +38,18 @@ body {
 .hero-section {
     min-height: 100vh; /* Ocupa el 100% de la pantalla visible */
     padding-top: 80px; /* Espacio para que no lo tape la barra de navegación */
+    /* Patrón de Metal Perforado 100% CSS (No requiere imagen) */
+    background-color: #222222; /* Color base del metal */
+    background-image: 
+        /* Capa 1: Viñeta oscura en los bordes y luz al centro */
+        radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, #050505 100%),
+        /* Capa 2: Agujeros del metal perforado */
+        radial-gradient(circle, #080808 3px, transparent 3.5px),
+        /* Capa 3: Agujeros intercalados para el patrón de malla */
+        radial-gradient(circle, #080808 3px, transparent 3.5px);
+    background-size: 100% 100%, 14px 14px, 14px 14px;
+    background-position: center, 0 0, 7px 7px;
+    background-attachment: fixed;
 }
 
 .hero-image-placeholder {
@@ -54,6 +72,7 @@ body {
     font-weight: 600;
     transition: all 0.3s ease;
 }
+
 .btn-vl-primary:hover {
     background-color: #0052cc;
     color: #ffffff;
@@ -68,6 +87,7 @@ body {
     font-weight: 600;
     transition: all 0.3s ease;
 }
+
 .btn-vl-outline:hover {
     border-color: var(--vl-blue);
     color: var(--vl-blue);
@@ -82,20 +102,40 @@ body {
 }
 
 /* =========================================
-   ANIMACIÓN DE DESVANECIMIENTO (FADE IN)
+   ANIMACIÓN DE DESVANECIMIENTO Y SCROLL (FADE IN)
    ========================================= */
 .fade-in-element {
     opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s ease-out forwards;
-    /* Un pequeño retraso para que cargue la estructura primero */
-    animation-delay: 0.2s; 
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
+.fade-in-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   EFECTO DEL LOGO FLOTANTE SIN FONDO
+   ========================================= */
+.floating-logo {
+    mix-blend-mode: lighten;
+    /* Efecto para ocultar el fondo oscuro/negro de las imágenes */
+    animation: float 5s ease-in-out infinite;
+    background-color: transparent !important;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
     }
 }
 
@@ -109,11 +149,13 @@ body {
     padding: 1rem;
     transition: all 0.3s ease;
 }
+
 .service-card:hover {
     border-color: var(--vl-blue);
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 102, 255, 0.1);
 }
+
 .service-number {
     font-size: 2.5rem;
     font-weight: 800;
@@ -122,11 +164,13 @@ body {
     opacity: 0.7;
     margin-bottom: -10px;
 }
+
 .service-card .card-title {
     color: #ffffff;
     font-weight: 700;
     font-size: 1.25rem;
 }
+
 .service-card .badge {
     font-weight: 500;
     letter-spacing: 0.5px;
@@ -157,12 +201,14 @@ body {
     color: #ffffff;
     transition: all 0.3s ease;
 }
+
 .form-control-dark:focus {
     background-color: #27272a;
     border-color: var(--vl-blue);
     box-shadow: 0 0 0 0.25rem rgba(0, 102, 255, 0.25);
     color: #ffffff;
 }
+
 .form-control-dark::placeholder {
     color: #71717a;
 }

@@ -1,30 +1,26 @@
 import { servicios, promociones } from './database.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    renderizarPromociones();
     renderizarServicios();
     configurarFormularioContacto();
+    configurarAnimacionesScroll();
 });
 
-function renderizarPromociones() {
-    const promocionActiva = promociones.find(p => p.activa);
-    if (!promocionActiva) return;
+function configurarAnimacionesScroll() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Opcional: si quieres que la animación se repita al subir, descomenta lo siguiente
+                // } else {
+                //     entry.target.classList.remove('visible');
+            }
+        });
+    }, { threshold: 0.1 });
 
-    // Buscar la sección hero para inyectar la alerta justo al inicio
-    const heroSection = document.getElementById('inicio');
-    if (heroSection) {
-        const alertHTML = `
-            <div class="container mt-3 fade-in-element" style="position: absolute; top: 80px; left: 0; right: 0; z-index: 100;">
-                <div class="alert alert-dismissible fade show text-center shadow-lg" style="background-color: rgba(0, 102, 255, 0.15); border: 1px solid var(--vl-blue); color: #ffffff; backdrop-filter: blur(5px);" role="alert">
-                    <span class="badge bg-primary me-2">PROMO</span>
-                    <strong>${promocionActiva.titulo}:</strong> ${promocionActiva.descripcion}
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            </div>
-        `;
-        heroSection.insertAdjacentHTML('afterbegin', alertHTML);
-    }
+    document.querySelectorAll('.fade-in-element').forEach(el => observer.observe(el));
 }
+
 
 function renderizarServicios() {
     const contenedor = document.getElementById('servicios-grid');
