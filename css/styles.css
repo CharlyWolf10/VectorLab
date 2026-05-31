@@ -128,35 +128,43 @@ body {
 @keyframes barridoGiroBarrido {
     0% {
         opacity: 0;
-        transform: translateX(-150%) rotate(0deg) scale(0.8);
+        transform: translateX(-150%) translateY(0) rotate(0deg);
     }
     15% {
         opacity: 1;
-        transform: translateX(0) rotate(0deg) scale(1); /* Entra */
+        transform: translateX(0) translateY(0) rotate(0deg); /* Entra */
+    }
+    20% {
+        opacity: 1;
+        transform: translateX(0) translateY(0) rotate(0deg); /* Espera */
     }
     30% {
         opacity: 1;
-        transform: translateX(0) rotate(0deg) scale(1); /* Espera */
+        transform: translateX(0) translateY(-60px) rotate(0deg); /* Salto */
     }
     40% {
         opacity: 1;
-        transform: translateY(-80px) rotate(180deg) scale(1.1); /* Salto y medio giro */
+        transform: translateX(0) translateY(0) rotate(0deg); /* Cae del salto */
     }
-    50% {
+    45% {
         opacity: 1;
-        transform: translateY(0) rotate(360deg) scale(1); /* Aterriza y termina giro */
+        transform: translateX(0) translateY(0) rotate(0deg); /* Espera cortita */
     }
-    65% {
+    60% {
         opacity: 1;
-        transform: translateX(0) rotate(360deg) scale(1); /* Espera */
+        transform: translateX(0) translateY(0) rotate(360deg); /* Gira 360 */
     }
-    80% {
+    70% {
+        opacity: 1;
+        transform: translateX(0) translateY(0) rotate(360deg); /* Espera */
+    }
+    85% {
         opacity: 0;
-        transform: translateX(150%) rotate(360deg) scale(0.8); /* Sale */
+        transform: translateX(150%) translateY(0) rotate(360deg); /* Sale */
     }
     100% {
         opacity: 0;
-        transform: translateX(150%) rotate(360deg) scale(0.8); /* Oculto hasta repetir */
+        transform: translateX(150%) translateY(0) rotate(360deg); /* Oculto */
     }
 }
 
