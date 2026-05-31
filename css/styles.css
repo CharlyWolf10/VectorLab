@@ -116,26 +116,47 @@ body {
 }
 
 /* =========================================
-   EFECTO DEL LOGO FLOTANTE SIN FONDO
+   ANIMACIÓN COMPLEJA PARA EL LOGO
    ========================================= */
-.floating-logo {
-    mix-blend-mode: lighten;
-    /* Efecto para ocultar el fondo oscuro/negro de las imágenes */
-    animation: float 5s ease-in-out infinite;
-    background-color: transparent !important;
+.logo-animado-secuencia {
+    animation: barridoGiroBarrido 8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    will-change: transform, opacity;
+    display: block;
+    margin: 0 auto;
 }
 
-@keyframes float {
+@keyframes barridoGiroBarrido {
     0% {
-        transform: translateY(0px);
+        opacity: 0;
+        transform: translateX(-150%) rotate(0deg) scale(0.8);
     }
-
+    15% {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg) scale(1); /* Entra */
+    }
+    30% {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg) scale(1); /* Espera */
+    }
+    40% {
+        opacity: 1;
+        transform: translateY(-80px) rotate(180deg) scale(1.1); /* Salto y medio giro */
+    }
     50% {
-        transform: translateY(-20px);
+        opacity: 1;
+        transform: translateY(0) rotate(360deg) scale(1); /* Aterriza y termina giro */
     }
-
+    65% {
+        opacity: 1;
+        transform: translateX(0) rotate(360deg) scale(1); /* Espera */
+    }
+    80% {
+        opacity: 0;
+        transform: translateX(150%) rotate(360deg) scale(0.8); /* Sale */
+    }
     100% {
-        transform: translateY(0px);
+        opacity: 0;
+        transform: translateX(150%) rotate(360deg) scale(0.8); /* Oculto hasta repetir */
     }
 }
 
