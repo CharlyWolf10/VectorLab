@@ -156,6 +156,7 @@ function configurarBurbujaChat() {
         
         const name = document.getElementById('chat-name').value;
         const email = document.getElementById('chat-email').value;
+        const phone = document.getElementById('chat-phone').value;
         const message = document.getElementById('chat-message').value;
         const fileInput = document.getElementById('chat-file');
 
@@ -206,6 +207,7 @@ function configurarBurbujaChat() {
         const payload = {
             name: name,
             email: email,
+            phone: phone,
             message: message,
             fileName: fileName,
             mimeType: mimeType,
