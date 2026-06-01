@@ -29,6 +29,46 @@
     <!-- Contenedor para el Modal Global (Mantiene limpio el HTML) -->
     <div id="comp-modal"></div>
 
+    <!-- Burbuja Flotante de Chat -->
+    <div id="chat-bubble-container" class="position-fixed" style="bottom: 30px; right: 30px; z-index: 1050;">
+        <!-- Botón Flotante -->
+        <button id="chat-bubble-btn" class="btn btn-vl-primary rounded-circle shadow-lg d-flex align-items-center justify-content-center" style="width: 65px; height: 65px; transition: all 0.3s ease;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">
+                <path d="M16 8c0 3.866-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7M5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0m4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+            </svg>
+        </button>
+
+        <!-- Panel de Chat -->
+        <div id="chat-panel" class="card glass-card d-none shadow-lg border-0" style="position: absolute; bottom: 80px; right: 0; width: 350px; border-radius: 15px; overflow: hidden; transform-origin: bottom right;">
+            <div class="card-header bg-transparent border-bottom border-secondary d-flex justify-content-between align-items-center p-3">
+                <h6 class="mb-0 text-white fw-bold d-flex align-items-center gap-2">
+                    <span style="color: #0066ff;">●</span> Envíanos tus archivos
+                </h6>
+                <button id="chat-close-btn" type="button" class="btn-close btn-close-white" aria-label="Close" style="font-size: 0.8rem;"></button>
+            </div>
+            <div class="card-body p-4" style="background: rgba(15, 15, 17, 0.8);">
+                <form id="floating-chat-form">
+                    <div class="mb-3">
+                        <input type="text" id="chat-name" class="form-control form-control-dark form-control-sm" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" id="chat-email" class="form-control form-control-dark form-control-sm" placeholder="Tu correo electrónico" required>
+                    </div>
+                    <div class="mb-3">
+                        <textarea id="chat-message" class="form-control form-control-dark form-control-sm" rows="3" placeholder="Describe tu proyecto o dudas..." required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-muted small mb-1">Adjuntar archivo (opcional)</label>
+                        <input type="file" id="chat-file" class="form-control form-control-dark form-control-sm text-muted">
+                        <div class="form-text small" style="color: #71717a; font-size: 0.75rem;">Máximo 5MB (PDF, PNG, JPG, AI).</div>
+                    </div>
+                    <button type="submit" class="btn btn-vl-primary btn-sm w-100 fw-bold mt-2" id="chat-submit-btn">Enviar a VectorLab</button>
+                    <div id="chat-status" class="mt-2 text-center small text-light d-none"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script src="js/bootstrap.bundle.min.js"></script>
     <script type="module" src="js/main.js"></script>
 </body>

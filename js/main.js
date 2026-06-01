@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderizarServicios();
     configurarFormularioContacto();
     configurarAnimacionesScroll();
+    configurarBurbujaChat();
 });
 
 async function cargarComponentes() {
@@ -126,4 +127,125 @@ function configurarFormularioContacto() {
             }, 1500);
         });
     }, 500);
+}
+
+function configurarBurbujaChat() {
+    const btn = document.getElementById('chat-bubble-btn');
+    const panel = document.getElementById('chat-panel');
+    const closeBtn = document.getElementById('chat-close-btn');
+    const form = document.getElementById('floating-chat-form');
+    const statusDiv = document.getElementById('chat-status');
+    const submitBtn = document.getElementById('chat-submit-btn');
+
+    if (!btn || !panel) return;
+
+    btn.addEventListener('click', () => {
+        if (panel.classList.contains('d-none')) {
+            panel.classList.remove('d-none');
+        } else {
+            panel.classList.add('d-none');
+        }
+    });
+
+    closeBtn.addEventListener('click', () => {
+        panel.classList.add('d-none');
+    });
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('chat-name').value;
+        const email = document.getElementById('chat-email').value;
+        const message = document.getElementById('chat-message').value;
+        const fileInput = document.getElementById('chat-file');
+
+        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Enviando...';
+        submitBtn.disabled = true;
+        statusDiv.classList.remove('d-none');
+        statusDiv.textContent = 'Procesando archivo...';
+        statusDiv.className = 'mt-2 text-center small text-info';
+
+        let fileData = null;
+        let fileName = '';
+        let mimeType = '';
+
+        if (fileInput.files.length > 0) {
+            const file = fileInput.files[0];
+            if (file.size > 5 * 1024 * 1024) {
+                statusDiv.textContent = 'Error: El archivo excede los 5MB permitidos.';
+                statusDiv.className = 'mt-2 text-center small text-danger';
+                submitBtn.innerHTML = 'Enviar a VectorLab';
+                submitBtn.disabled = false;
+                return;
+            }
+            
+            fileName = file.name;
+            mimeType = file.type;
+            
+            try {
+                fileData = await new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = () => {
+                        const base64String = reader.result.split(',')[1];
+                        resolve(base64String);
+                    };
+                    reader.onerror = error => reject(error);
+                    reader.readAsDataURL(file);
+                });
+            } catch (error) {
+                statusDiv.textContent = 'Error al leer el archivo.';
+                statusDiv.className = 'mt-2 text-center small text-danger';
+                submitBtn.innerHTML = 'Enviar a VectorLab';
+                submitBtn.disabled = false;
+                return;
+            }
+        }
+
+        statusDiv.textContent = 'Enviando mensaje...';
+
+        const payload = {
+            name: name,
+            email: email,
+            message: message,
+            fileName: fileName,
+            mimeType: mimeType,
+            fileData: fileData
+        };
+
+        // IMPORTANTE: El usuario debe reemplazar esta URL con la que le genere Google Apps Script
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNcBZHo85r5887iiDQjAPzv-LdXfdg9LaD-KnsYbiHKxWeAdTwWPn99bEj4D6ZHK2T/exec';
+
+        if (GOOGLE_SCRIPT_URL === 'REEMPLAZAR_CON_URL_DE_APPS_SCRIPT') {
+            statusDiv.textContent = 'Falta configurar la URL de Google Apps Script en main.js';
+            statusDiv.className = 'mt-2 text-center small text-warning';
+            submitBtn.innerHTML = 'Enviar a VectorLab';
+            submitBtn.disabled = false;
+            return;
+        }
+
+        try {
+            const response = await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify(payload)
+            });
+
+            statusDiv.textContent = '¡Mensaje y archivos enviados con éxito!';
+            statusDiv.className = 'mt-2 text-center small text-success';
+            form.reset();
+            
+            setTimeout(() => {
+                panel.classList.add('d-none');
+                statusDiv.classList.add('d-none');
+            }, 3000);
+
+        } catch (error) {
+            console.error('Error:', error);
+            statusDiv.textContent = 'Hubo un error de red al enviar.';
+            statusDiv.className = 'mt-2 text-center small text-danger';
+        }
+
+        submitBtn.innerHTML = 'Enviar a VectorLab';
+        submitBtn.disabled = false;
+    });
 }
